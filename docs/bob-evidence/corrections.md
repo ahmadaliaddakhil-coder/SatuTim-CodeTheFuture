@@ -1,0 +1,1 @@
+kolom: nomor, sesi, apa yang salah atau meragukan, cara kami tahu (sumber atau logika), perbaikan (prompt lanjutan atau edit manual), dampak ke keputusan. Catat juga saat Bob menolak asumsi tim dan tim berubah pikiran.

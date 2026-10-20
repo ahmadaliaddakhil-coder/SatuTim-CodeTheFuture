@@ -1,28 +1,6 @@
-# SatuTim: brief produk
-
-Web app responsif (mobile-first) untuk mahasiswa yang mengerjakan tugas kelompok.
-Loop produk: cocokkan -> sepakati -> jaga -> buktikan.
-
-## Masalah
-
-Peran kabur, usaha anggota tidak terlihat, dan budaya sungkan membuat masalah
-dipendam sampai nilai akhir terasa tidak adil.
-
-## Fitur MVP
-
-F1 Ruang tim (buat ruang, masuk lewat kode)
-F2 Fit Snapshot (jam kosong mingguan, skill, target nilai, gaya kerja)
-F3 Perjanjian Tim (hitung jam kosong bersama + selisih target; AI memecah brief jadi
-tugas dan usulan peran; tim menyunting lalu menekan "Setuju")
-F4 Papan tugas + log kontribusi (centang selesai = tercatat otomatis)
-F5 Pengingat netral + tombol "perlu bantuan / jadwal bentrok"
-F6 Laporan kontribusi 1 halaman
-F7 Penerjemah teguran AI (bonus)
-
-## Prinsip desain
-
-- Log append-only, tidak bisa diedit diam-diam
-- Tidak ada peringkat atau skor antar-anggota
-- AI hanya memecah tugas dan menyusun ulang teguran; AI tidak menilai orang
-- Data demo fiktif 15-20 mahasiswa
-- Build 3 hari, jadi pilih stack paling sederhana
+• A. Konteks program: Beginner Track, Tema 2 dengan kalimat masalahnya (“How might we use AI to help students connect, collaborate, and engage with campus communities and opportunities?”), contoh area inovasi dan luaran, format prototipe (web app, mobile app, browser mini-game, interactive bot).
+• B. Kriteria penilaian proposal: 30% Problem & Solutions Relevance (problem relevance, solution effectiveness, user-centricity); 40% IBM Bob Utilization (log verification, multi-mode utilization, code generation quality dan efektivitas prompt); 30% Innovation & Creativity (concept originality, functionality dan UX). Proposal 5 slide: Problem Identification, Target Audience, Innovation Concept, IBM Bob Utilization, Expected Impact. Tenggat 20 Oktober 2026.
+• C. Batasan: Build Week 3 hari (minggu ke-2 November), demo minimal 3 menit, tim maksimal 5 orang, 500 Bob Coin per tim, pengguna di Indonesia (Surabaya).
+• D. Titik awal tim (label: eksplorasi sebelum Bob): observasi masalah kerja kelompok (free-rider, sungkan menegur, penilaian tidak adil, ketidakcocokan tim, tim diacak dosen) dan ide awal tim.
+• E. Riset pendukung dari tim: tabel berisi klaim, tautan sumber, dan kolom “sudah dibuka dan diverifikasi tim? ya/tidak”.
+• F. Ground rules for Bob (tulis bagian ini dalam bahasa Inggris): (1) Never invent statistics, quotations, sources, or product names. (2) Tag every claim as [FAKTA-BRIEF] (stated in this brief), [ASUMSI] (an assumption), or [PERLU-SUMBER] (needs a source). (3) Challenge the team’s direction; do not simply agree. (4) If anything is ambiguous, ask at most 3 questions before starting. (5) Write every deliverable and chat reply in Indonesian, concisely, and save outputs to the file named in the prompt. (6) If you cannot verify something (for example, you cannot open a link), say so plainly instead of guessing.
