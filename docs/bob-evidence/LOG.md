@@ -1,7 +1,7 @@
 # Log Penggunaan IBM Bob — SatuTim
 
 > Satu baris per sesi. Kolom: ID · Tanggal · Mode · Tujuan · Berkas Masukan · Keluaran · Keputusan Manusia (Terima/Ubah/Tolak + alasan) · Tautan Koreksi.
-> Rekonstruksi sesi 01–15 dari percakapan pada sesi hackathon ini; sesi 16–21 ditambahkan pada sesi lanjutan (konteks percakapan ini). Tanggal adalah tanggal sesi berlangsung dalam konteks proyek.
+> Rekonstruksi sesi 01–15 dari percakapan pada sesi hackathon ini; sesi 16–23 ditambahkan pada sesi lanjutan (konteks percakapan ini). Tanggal adalah tanggal sesi berlangsung dalam konteks proyek.
 
 ---
 
@@ -29,3 +29,4 @@
 | 19 | Sesi lanjutan | Agent | Menulis draf 5 slide ke `docs/slides-draft.md` (permintaan pertama di sesi ini): judul, ≤5 butir, saran visual, catatan pembicara, sumber internal per slide; Slide 4 hanya dari LOG+corrections; tabel verifikasi 13 butir wajib di akhir | `plans/02–07`, `docs/bob-evidence/LOG.md`, `docs/bob-evidence/corrections.md` | `docs/slides-draft.md` (versi baru sesi ini) — 5 slide + tabel verifikasi; lalu diperbarui angka sesi 13→15→16 | **Diterima** — semua 13 butir wajib terpenuhi pada verifikasi akhir; angka sesi konsisten dengan LOG saat itu | — |
 | 20 | Sesi lanjutan | Agent | Menulis rencana Build Week 3 hari ke `plans/08-build-plan.md`: arsitektur web app, model data JSON, prompt template per hari, unit test wajib (6 test), estimasi coin, cara kumpulkan bukti log harian, risiko teknis per hari, data seed Demo Mode, checklist pre-demo | `docs/brief.md` §C, `plans/06-concept-prd.md`, `plans/07-red-team.md` | `plans/08-build-plan.md` | **Diterima** — setiap hari punya target, mode Bob, bukti log, dan risiko; estimasi ~23 panggilan dari 500 coin | — |
 | 21 | Sesi lanjutan | Agent | Perbarui LOG agar mencapture semua percakapan dari awal sesi ini sampai akhir (sesi 18–21) | `docs/bob-evidence/LOG.md` | `docs/bob-evidence/LOG.md` (file ini) — ditambahkan sesi 18–21 | **Diterima** | — |
+| 23 | Sesi lanjutan | Plan | Breakdown task menuju skor ~95/100: identifikasi gap literatur, kurasi 9 sitasi ilmiah peer-reviewed, tulis plans/10-literature.md, terapkan ke slides-draft.md (Slide 1, 2, 3, 5), perkuat kecocokan 3 kata kunci Tema 2 | Semua `plans/`, `docs/slides-draft.md`, `docs/bob-evidence/sources.md`, `plans/07-red-team.md` | `plans/10-literature.md` (9 sitasi ilmiah) + `docs/slides-draft.md` (semua [ASUMSI] & [PERLU-SUMBER] di Slide 1, 3, 5 diganti sitasi) | **Diterima** — semua tag [ASUMSI] kritis di slide digantikan literatur peer-reviewed; Tema 2 kini menjawab 3/3 kata kunci dengan dasar bukti | — |

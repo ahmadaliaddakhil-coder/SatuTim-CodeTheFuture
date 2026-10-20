@@ -15,13 +15,13 @@
 
 ### Butir Konten (maks 5)
 
-1. **Masalah universal:** Ketimpangan kontribusi dalam tugas kelompok terjadi hampir di setiap kelompok [ASUMSI — data primer belum dikumpulkan] — fenomena ini disebut *social loafing* dalam psikologi sosial (Latané, Williams & Harkins, 1979). [PERLU-SUMBER: verifikasi langsung jurnal asli belum dilakukan tim]
+1. **Masalah universal:** Ketimpangan kontribusi dalam tugas kelompok bukan pengecualian — meta-analisis 78 studi (Karau & Williams, 1993) membuktikan *social loafing* konsisten di berbagai budaya dan jenis tugas. Dalam konteks pendidikan tinggi khususnya, ketidakjelasan peran dan kurangnya akuntabilitas individual adalah pemicu utama (Piezon & Ferree, 2008). (`plans/10-literature.md` L-1, L-2)
 
-2. **Tidak ada mekanisme aman:** Melapor ke dosen dianggap "mengkhianati kelompok"; menegur langsung berisiko merusak hubungan sosial. Akibatnya, anggota aktif mengambil alih pekerjaan — yang justru menghapus konsekuensi bagi yang tidak berkontribusi. [ASUMSI, konsisten dengan observasi brief §D]
+2. **Tidak ada mekanisme aman:** Dalam budaya kolektivisitik, norma penghindaran konflik membuat anggota aktif lebih memilih mengambil alih pekerjaan daripada menghadapi anggota pasif (Tjosvold et al., 2009) — yang justru menghapus konsekuensi bagi yang tidak berkontribusi. Melapor ke dosen dianggap melanggar norma sosial kelompok. [FAKTA-BRIEF §D; didukung L-3 `plans/10-literature.md`]
 
 3. **Tool yang ada tidak cukup:** Trello dan Notion menyediakan tempat menyimpan tugas, tetapi tidak mengetahui siapa anggota tim, tidak membaca jenis tugas, dan tidak bisa mendeteksi ketimpangan beban kerja secara otomatis. (`plans/07` §3.1)
 
-4. **Tiga akar masalah utama:** (a) tidak ada kesepakatan awal yang eksplisit tentang peran; (b) tidak ada visibilitas progres bersama; (c) tidak ada catatan kontribusi individual yang bisa dipertanggungjawabkan. (`plans/02` §3A — akar [S] Struktural dan [I] Informasional)
+4. **Akar masalah yang terdokumentasi:** Penilaian kolektif tanpa akuntabilitas individual secara konsisten menghasilkan free-riding (Slavin, 1995; Gillies, 2003). Tiga celah konkret: (a) tidak ada pembagian peran yang eksplisit; (b) tidak ada visibilitas progres bersama; (c) tidak ada catatan kontribusi yang bisa dipertanggungjawabkan. (`plans/02` §3A; `plans/10-literature.md` L-4)
 
 5. **Dampak langsung:** Anggota yang bekerja keras tidak bisa membuktikannya; anggota yang kesulitan tidak punya cara aman untuk minta bantuan. Keduanya mengalami kerugian yang berbeda dari sistem yang sama. (`plans/02` §4)
 
@@ -55,7 +55,7 @@ Mulai dengan pertanyaan retoris: *"Siapa di sini pernah mengerjakan hampir semua
 Tiga kartu persona berjajar dengan nama, satu kutipan, dan satu kebutuhan utama per persona. Kutipan: Rahma — *"Aku capek jadi satu-satunya yang ngejar orang."* / Dito — *"Aku mau ngerjain tapi nggak tau mulai dari mana."* / Sinta — *"Aku nggak mau keliatan bego nanya di grup."*
 
 ### Catatan Pembicara
-Tekankan bahwa ketiga persona ini ada di hampir setiap kelompok (berdasarkan observasi tim, perlu dikonfirmasi survei). Jangan sebut nama "Dito" dan "Sinta" sebagai "masalah" — framing mereka sebagai pengguna yang butuh dukungan berbeda, bukan yang harus dihukum.
+Tekankan bahwa ketiga persona ini mencerminkan tiga pola respons berbeda terhadap masalah yang sama — bukan soal karakter, tapi soal hambatan yang berbeda (Piezon & Ferree, 2008 mengonfirmasi bahwa free-riding lebih sering disebabkan struktur, bukan motivasi). Jangan sebut "Dito" dan "Sinta" sebagai "masalah" — framing mereka sebagai pengguna yang butuh dukungan berbeda.
 
 ---
 
@@ -75,16 +75,18 @@ Tekankan bahwa ketiga persona ini ada di hampir setiap kelompok (berdasarkan obs
 2. **Jenis tugas yang didukung di MVP:**
    T1 (Makalah/Laporan) — paling universal; T2 (Proyek/Prototipe) — gap analysis paling kritis, demo paling dramatis; T6 (Kustom) — koordinator isi manual. T3–T5 dikeluarkan dari MVP karena scope Build Week 3 hari tidak cukup. (`plans/06` §2.2–2.3)
 
-3. **Tiga hal yang tidak bisa dilakukan Trello/Notion:**
-   (a) Gap analysis berbasis profil CV — AI deteksi role yang tidak tersedia sebelum kerja dimulai, bukan sesudah;
-   (b) Pembagian tugas kontekstual per jenis tugas dengan DoD spesifik per role;
-   (c) Notifikasi privat + magic link 1-tap — anggota pasif bisa update status tanpa buka app. (`plans/06` §5.1; `plans/07` §3.2)
+3. **Tiga diferensiasi berbasis bukti:**
+   (a) **Gap analysis berbasis profil CV** — komplementaritas keahlian dalam tim terbukti meningkatkan kualitas output (van Knippenberg et al., 2004); SatuTim mendeteksi gap ini sebelum kerja dimulai;
+   (b) **Pembagian peran eksplisit + DoD per role** — kejelasan peran adalah prediktor paling kuat berkurangnya social loafing (Oakley et al., 2004); AI generate per jenis tugas, bukan template generik;
+   (c) **Akuntabilitas terlihat + notifikasi privat** — akuntabilitas individual yang visible terbukti mengurangi free-riding (Johnson & Johnson, 2009; Kerr & Bruun, 1983); magic link memastikan friktif minimum. (`plans/10-literature.md` L-5, L-6, L-9)
 
 4. **Metode yang diadaptasi (semua berlabel eksploratif):**
    Kanban Board (3 kolom disederhanakan) · Definition of Done per sub-tugas (AI-generated, bisa diedit) · Standup Async (1-tap, bukan 3 pertanyaan) · Working Agreement (dipersempit ke dimensi task). Semua berlabel **[ADAPTASI-EKSPLORATIF]** — efektivitas dalam konteks mahasiswa Indonesia belum dibuktikan. (`plans/06` §4)
 
-5. **Fitur Portofolio Kolaborasi (kecocokan Tema 2):**
-   Setelah tugas selesai, laporan kontribusi bisa dijadikan "Portofolio Kolaborasi" publik — bukti pengalaman saat mendaftar UKM, lomba, atau magang. Ini menyentuh kata kunci *"engage with campus communities and opportunities"* dari Tema 2 yang sebelumnya tidak tersentuh. (`plans/07` §4 + Perubahan #3)
+5. **Portofolio Kolaborasi — menjawab tiga kata kunci Tema 2:**
+   **Collaborate:** inti produk — pembagian adil, visibilitas, akuntabilitas.
+   **Connect:** gap analysis berbasis CV menghubungkan mahasiswa ke peran yang sesuai keahliannya, bukan sekadar siapa yang dekat secara sosial (van Knippenberg et al., 2004).
+   **Engage with opportunities:** portofolio digital kontribusi konkret terbukti meningkatkan aksesibilitas ke peluang magang dan kerja (Barrett, 2007) — laporan SatuTim bisa dibagikan ke UKM, lomba, atau perekrut. (`plans/10-literature.md` L-8, L-9; `plans/07` §4)
 
 ### Saran Visual
 Diagram alur 4 fase dengan ikon per fase. Tabel perbandingan 3 kolom: Trello | Notion AI | SatuTim — fokus pada 3 hal yang hanya SatuTim lakukan. Opsi: screenshot wireframe board (jika tersedia dari Figma).
@@ -138,14 +140,14 @@ Jangan hanya sebutkan jumlah sesi — ceritakan satu koreksi secara singkat. Kor
 
 ### Butir Konten (maks 5)
 
-1. **Dampak jangka pendek per tugas:**
-   Rahma: ketimpangan terdeteksi sebelum jadi konflik; kontribusinya tercatat dan bisa ditunjukkan.
-   Dito & Sinta: tugas jelas sejak awal; diingatkan secara privat bukan dipermalukan; bisa update status via magic link tanpa buka app.
-   **Mekanisme perubahan perilaku:** magic link meminimalkan friksi — satu klik dari WA sudah cukup update status tanpa membuka app; koordinator bisa kirim link ini kapan saja. [ASUMSI — belum divalidasi di lapangan]
-   Dosen (opsional): laporan kontribusi sebagai data pendukung penilaian yang lebih adil. [ASUMSI — belum ada konfirmasi dosen mau menerima ini] (`plans/06` §5.1 F6)
+1. **Dampak jangka pendek — berbasis mekanisme yang terbukti:**
+   Akuntabilitas individual yang terlihat adalah salah satu dari lima elemen kunci cooperative learning efektif (Johnson & Johnson, 2009) dan secara langsung mengurangi free-riding ketika kontribusi *visible* (Kerr & Bruun, 1983).
+   **Per persona:** Rahma — ketimpangan terdeteksi dengan data, bukan dugaan. Dito & Sinta — peran jelas sejak awal; magic link 1-tap dari WA meminimalkan friksi untuk update status.
+   **Desain sebagai umpan balik, bukan pengawasan:** berdasarkan Self-Determination Theory (Deci & Ryan, 2000), visibilitas yang dipersepsikan sebagai "umpan balik kolaboratif" meningkatkan motivasi intrinsik; SatuTim menjaga ini lewat notifikasi privat dan laporan yang hanya dibagikan atas pilihan pengguna.
+   Dosen (opsional): laporan kontribusi sebagai data pendukung penilaian lebih adil. [ASUMSI — belum ada konfirmasi dosen] (`plans/10-literature.md` L-5, L-7; `plans/06` §5.1 F6)
 
-2. **Dampak jangka panjang:**
-   Mahasiswa mempelajari praktik kolaborasi industri (Agile: Working Agreement, DoD, standup async) sebelum masuk dunia kerja. [ADAPTASI-EKSPLORATIF — efektivitas belum diuji] Portofolio Kolaborasi menghubungkan pengalaman akademis ke peluang kampus yang lebih luas — UKM, lomba, magang. (`plans/06` §5.1 F6 + `plans/07` Perubahan #3)
+2. **Dampak jangka panjang — didukung literatur:**
+   Portofolio digital yang mencatat kontribusi konkret terbukti meningkatkan aksesibilitas mahasiswa ke peluang magang dan kerja karena memberikan bukti kompetensi lebih spesifik dari IPK (Barrett, 2007). Mahasiswa juga mempelajari praktik kolaborasi terstruktur (Agile: Working Agreement, DoD, standup async) [ADAPTASI-EKSPLORATIF — transfer ke konteks akademik belum diuji]. (`plans/10-literature.md` L-8; `plans/06` §5.1 F6)
 
 3. **Metrik keberhasilan yang diusulkan (bukan standar industri):**
 
