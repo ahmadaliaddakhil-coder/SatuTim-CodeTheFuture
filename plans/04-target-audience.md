@@ -34,32 +34,46 @@
 ### Persona 1 — "Rahma, Si Penggerak Kelompok"
 *Mewakili segmen S1 (anggota aktif) dan S2 (koordinator)*
 
+**Akar masalah yang dialami (→ `plans/02-problem-framing.md` §3A):**
+- [Struktural] Tidak ada standar kesepakatan awal (*team charter*) yang diwajibkan dosen.
+- [Struktural] Tidak ada saluran resmi yang aman untuk melaporkan ketimpangan kepada dosen.
+- [Informasional] Komunikasi koordinasi terfragmentasi di beberapa platform sehingga pesan penting hilang.
+- [Psikologis] Anggota tim menghindari konfrontasi langsung karena khawatir merusak hubungan pertemanan.
+
 | Atribut | Detail | Tag |
 |---------|--------|-----|
-| **Nama & usia** | Rahma, 20 tahun | Rekaan ilustrasi |
-| **Konteks** | Mahasiswa semester 4, jurusan Manajemen, universitas swasta di Surabaya. Aktif di BEM, sering dijadikan ketua kelompok karena dianggap "bisa diandalkan". | Semester 3–7 disebut dalam `plans/01-problem-discovery.md` [ASUMSI untuk detailnya] |
-| **Tujuan** | Mendapat nilai A; memastikan anggota kelompok berkontribusi; tidak ingin reputasinya rusak karena hasil kerja orang lain. | [ASUMSI] |
-| **Perilaku saat ini** | Membuat grup WA untuk setiap tugas kelompok; membagi tugas lewat pesan panjang; mengirim reminder manual setiap malam sebelum deadline; sering mengerjakan ulang bagian orang lain yang dianggap tidak memadai. | [ASUMSI] |
-| **Frustrasi** | Tidak ada cara elegan untuk "menunjukkan" bahwa satu orang tidak berkontribusi tanpa terkesan menyerang; capek menjadi "ibu kelompok" setiap semester; kontribusinya tidak pernah diakui secara formal dalam penilaian. | Konsisten dengan `plans/02-problem-framing.md` §2.1 dan §2.3 [ASUMSI untuk intensitasnya] |
-| **Workaround saat ini** | Google Docs untuk dokumen bersama; screenshot tugas sebagai "bukti" jika ada keluhan; kadang mengundang dosen ke grup WA agar anggota "takut" dan mau bergerak. | [ASUMSI] |
-| **Kondisi penggunaan** | Smartphone Android mid-range; dominan menggunakan aplikasi saat malam hari (22.00–00.00) setelah aktivitas kampus; koneksi data lancar di kampus, terkadang bergantung WiFi di kos. | [ASUMSI] — infrastruktur urban Surabaya diasumsikan memadai [PERLU-SUMBER] |
-| **Saluran yang biasa dipakai** | WhatsApp (utama), Instagram DM (informal), Google Drive, sesekali email ke dosen. | [ASUMSI] |
+| **Nama** | Rahma | Rekaan ilustrasi — nama tidak berbasis data |
+| **Konteks** | Mahasiswi S1 di Surabaya; aktif berorganisasi; sering dijadikan ketua kelompok. | "Pengguna di Indonesia (Surabaya)" [FAKTA-BRIEF]; aktif berorganisasi [ASUMSI] |
+| **Tujuan** | Memastikan hasil kelompok bagus; tidak ingin nilai kelompok ditentukan oleh kontribusi orang lain yang tidak bisa ia kendalikan. | [ASUMSI] |
+| **Perilaku saat ini** | Membuat grup WA per tugas; membagi tugas lewat pesan panjang; mengirim reminder manual berulang kali; mengerjakan ulang bagian anggota yang dianggap tidak memadai. | [ASUMSI] |
+| **Frustrasi** | Tidak ada cara untuk menunjukkan ketimpangan tanpa terkesan menyerang; peran koordinatornya tidak pernah diakui dalam penilaian kolektif. | Konsisten dengan §2.1 dan §2.3 `plans/02-problem-framing.md` [ASUMSI untuk intensitasnya] |
+| **Workaround saat ini** | Google Docs untuk dokumen bersama; screenshot sebagai "bukti" jika ada keluhan; sesekali mengundang dosen ke grup WA agar anggota lebih serius. | [ASUMSI] |
+| **Kondisi penggunaan — perangkat** | Smartphone (dominan); laptop untuk pengerjaan dokumen. | [ASUMSI] — tidak ada data perangkat spesifik di brief [PERLU-SUMBER] |
+| **Kondisi penggunaan — waktu** | Malam hari setelah aktivitas kampus dan organisasi. | [ASUMSI] |
+| **Kondisi penggunaan — kanal** | WhatsApp (utama), Google Drive, sesekali email ke dosen. | [ASUMSI] |
 
 ---
 
 ### Persona 2 — "Dito, Si Terlambat Tanpa Alasan Jelas"
-*Mewakili segmen S3 Kategori A/B — anggota dengan kontribusi rendah*
+*Mewakili segmen S3 Kategori C — anggota terhalang jadwal/keadaan*
+
+**Akar masalah yang dialami (→ `plans/02-problem-framing.md` §3A):**
+- [Informasional] Ekspektasi dosen tentang proses kerja kelompok jarang dikomunikasikan secara eksplisit di awal tugas.
+- [Informasional] Tidak ada *shared visibility* — anggota lain tidak tahu kapan Dito kewalahan sampai sudah terlambat.
+- [Struktural] Tidak ada standar kesepakatan awal yang menyertakan cadangan jadwal antar anggota.
+- [Psikologis] Hambatan psikologis untuk memulai ("tidak tahu mulai dari mana") berujung pada penundaan berlarut.
 
 | Atribut | Detail | Tag |
 |---------|--------|-----|
-| **Nama & usia** | Dito, 21 tahun | Rekaan ilustrasi |
-| **Konteks** | Mahasiswa semester 5, jurusan Teknik Informatika, universitas negeri di Surabaya. Aktif di komunitas *game development* kampus, mengambil 22 SKS semester ini, kerja paruh waktu sebagai *freelance* desainer 2–3 hari per minggu. | Karakteristik Kategori C (terhalang jadwal) dari `plans/02-problem-framing.md` §2.2 [ASUMSI untuk detailnya] |
-| **Tujuan** | Lulus semester ini tanpa IP anjlok; menyelesaikan tugas "cukup" tanpa mengorbankan proyek freelance-nya; tidak ingin dikucilkan dari teman. | [ASUMSI] |
-| **Perilaku saat ini** | Membaca pesan grup WA tetapi sering tidak membalas; mengerjakan bagian tugas di menit-menit terakhir; kadang mengirim hasil yang "seadanya" tanpa memeriksa relevansinya dengan bagian anggota lain. | Konsisten dengan Kategori B dan C di `plans/02-problem-framing.md` [ASUMSI] |
-| **Frustrasi** | Merasa dibanjiri tugas dari banyak mata kuliah sekaligus; tidak selalu paham apa yang diharapkan dari bagiannya; enggan bertanya karena takut dianggap tidak kompeten atau tidak menyimak saat briefing awal. | [ASUMSI] |
-| **Workaround saat ini** | Mengirim pesan "oke siap" di grup tanpa benar-benar memeriksa; menonton progres anggota lain sebelum mulai mengerjakan; mengandalkan ketua kelompok untuk "membenahi" hasil kerjanya. | [ASUMSI] |
-| **Kondisi penggunaan** | Smartphone, sering multitasking; paling produktif saat larut malam; jarang membuka laptop untuk keperluan non-teknis; koneksi data kadang bermasalah di kos pinggiran kota. | [ASUMSI] |
-| **Saluran yang biasa dipakai** | WhatsApp (membaca lebih banyak daripada membalas), Discord (untuk komunitas gaming), Google Drive (upload terakhir sebelum deadline). | [ASUMSI] |
+| **Nama** | Dito | Rekaan ilustrasi — nama tidak berbasis data |
+| **Konteks** | Mahasiswa S1 di Surabaya; jadwal padat karena aktif di beberapa kegiatan; mengerjakan tugas sambil menyeimbangkan komitmen lain. | "Pengguna di Indonesia (Surabaya)" [FAKTA-BRIEF]; jadwal padat [ASUMSI] — jurusan dan detail SKS tidak dicantumkan karena tidak ada dasar di brief |
+| **Tujuan** | Menyelesaikan kewajiban akademis tanpa mengorbankan prioritas lain yang sama pentingnya baginya. | [ASUMSI] |
+| **Perilaku saat ini** | Membaca pesan grup WA tetapi sering tidak membalas; mengerjakan bagian tugas di menit-menit terakhir; mengirim hasil tanpa memastikan relevansinya dengan bagian anggota lain. | Konsisten dengan Kategori B dan C §2.2 `plans/02-problem-framing.md` [ASUMSI] |
+| **Frustrasi** | Merasa dibanjiri tugas dari banyak sisi; tidak selalu paham apa yang diharapkan dari bagiannya; enggan bertanya karena takut dianggap tidak serius. | [ASUMSI] |
+| **Workaround saat ini** | Mengirim pesan "oke siap" di grup; menunggu anggota lain bergerak dulu sebelum mulai; mengandalkan ketua untuk membenahi hasil kerjanya. | [ASUMSI] |
+| **Kondisi penggunaan — perangkat** | Smartphone (dominan). | [ASUMSI] |
+| **Kondisi penggunaan — waktu** | Tidak menentu; sering larut malam karena siang hari dipenuhi aktivitas lain. | [ASUMSI] |
+| **Kondisi penggunaan — kanal** | WhatsApp (membaca lebih banyak dari membalas), Google Drive (upload mendekati deadline). | [ASUMSI] |
 
 > **Peringatan desain:** Persona ini adalah pengguna yang paling sulit diakuisisi sekaligus paling menentukan apakah produk benar-benar mengubah perilaku. Sebuah tool yang hanya nyaman bagi Rahma (Persona 1) tetapi tidak menjangkau Dito tidak menyelesaikan masalah intinya. [ASUMSI]
 
@@ -68,16 +82,23 @@
 ### Persona 3 — "Sinta, Si Bingung yang Diam"
 *Mewakili segmen S3 Kategori B — anggota yang tidak berkontribusi karena kebingungan*
 
+**Akar masalah yang dialami (→ `plans/02-problem-framing.md` §3A):**
+- [Informasional] Ekspektasi dosen tentang proses kerja kelompok jarang dikomunikasikan secara eksplisit di awal tugas.
+- [Struktural] Pembentukan kelompok sering ditentukan oleh kedekatan sosial — Sinta masuk kelompok tanpa modal relasi yang setara.
+- [Psikologis] Anggota menghindari konfrontasi dan bertanya karena khawatir merusak citra diri di depan orang yang belum dikenal.
+- [Kultural] Norma untuk tidak menegur atau bertanya secara terbuka dianggap berlaku — tapi ini tetap [ASUMSI] yang belum dibuktikan untuk kelompok mahasiswa perkotaan Surabaya.
+
 | Atribut | Detail | Tag |
 |---------|--------|-----|
-| **Nama & usia** | Sinta, 19 tahun | Rekaan ilustrasi |
-| **Konteks** | Mahasiswi semester 2, jurusan Psikologi, universitas negeri di Surabaya. Baru pertama kali menghadapi tugas kelompok besar (laporan 30 halaman). Introvert, tidak banyak bicara di kelompok yang didominasi teman-teman yang sudah saling kenal. | Mahasiswa baru yang rentan terhadap kebingungan tugas; konsisten dengan `plans/01-problem-discovery.md` baris #3 dan #8 [ASUMSI untuk detailnya] |
-| **Tujuan** | Tidak mengecewakan kelompok; memahami apa yang harus dikerjakan; tidak terlihat bodoh atau tidak berguna. | [ASUMSI] |
-| **Perilaku saat ini** | Menunggu anggota lain memulai sebelum bergerak; mengerjakan sesuatu yang menurutnya benar tapi tidak dikomunikasikan dulu ke tim; mengirim pekerjaan yang tidak relevan atau tumpang tindih dengan bagian orang lain. | Konsisten dengan Kategori B di `plans/02-problem-framing.md` §2.2 [ASUMSI] |
-| **Frustrasi** | Merasa tidak diajak bicara saat pembagian tugas terjadi secara cepat di antara teman-teman yang sudah akrab; tidak tahu ke mana harus bertanya selain ke WA grup yang intimidatif; khawatir mempermalukan diri. | [ASUMSI] |
-| **Workaround saat ini** | Minta penjelasan ke teman terdekat secara privat; mengerjakan bagian yang paling mudah meski bukan yang ditugaskan; diam dan berharap tidak dipermasalahkan. | [ASUMSI] |
-| **Kondisi penggunaan** | Smartphone, sering menggunakan aplikasi kampus (SIAKAD, e-learning) di siang hari antara kelas; WiFi kampus; jarang menggunakan laptop di luar jam kelas. | [ASUMSI] |
-| **Saluran yang biasa dipakai** | WhatsApp (membaca tanpa banyak membalas di grup, lebih aktif di chat privat), e-learning kampus, Instagram. | [ASUMSI] |
+| **Nama** | Sinta | Rekaan ilustrasi — nama tidak berbasis data |
+| **Konteks** | Mahasiswi S1 di Surabaya; relatif baru di kampus atau baru kenal anggota kelompoknya; cenderung tidak banyak bicara di kelompok yang didominasi teman-teman yang sudah saling akrab. | "Pengguna di Indonesia (Surabaya)" [FAKTA-BRIEF]; karakter introvert/baru kenal [ASUMSI] — semester dan jurusan tidak dicantumkan karena tidak ada dasar di brief |
+| **Tujuan** | Tidak mengecewakan kelompok; memahami apa yang harus dikerjakan; tidak terlihat tidak berguna. | [ASUMSI] |
+| **Perilaku saat ini** | Menunggu anggota lain mulai bergerak; mengerjakan sesuatu yang menurutnya benar tapi tidak dikonfirmasi ke tim dulu; mengirim hasil yang tumpang tindih atau tidak relevan. | Konsisten dengan Kategori B §2.2 `plans/02-problem-framing.md` [ASUMSI] |
+| **Frustrasi** | Tidak diajak bicara saat pembagian tugas berlangsung cepat di antara teman-teman yang sudah akrab; tidak tahu ke mana bertanya selain ke WA grup yang terasa intimidatif. | [ASUMSI] |
+| **Workaround saat ini** | Minta penjelasan ke satu teman secara privat; mengerjakan bagian yang paling mudah meski bukan bagiannya; diam dan berharap tidak dipermasalahkan. | [ASUMSI] |
+| **Kondisi penggunaan — perangkat** | Smartphone (dominan). | [ASUMSI] |
+| **Kondisi penggunaan — waktu** | Siang hari di sela-sela kelas, menggunakan WiFi kampus. | [ASUMSI] |
+| **Kondisi penggunaan — kanal** | WhatsApp (membaca, lebih aktif di chat privat daripada grup), e-learning kampus. | [ASUMSI] |
 
 > **Peringatan desain:** Sinta bukan *free-rider* — ia ingin berkontribusi tetapi tidak tahu caranya. Desain yang menampilkan kontribusinya secara publik kepada seluruh tim dapat memperburuk rasa malunya. Pendekatan privat atau bertahap mungkin lebih efektif untuk segmen ini. [ASUMSI]
 
@@ -166,4 +187,18 @@ Dosen tidak akan menjadi pengguna aktif tool ini — mereka tidak akan membuka d
 
 ---
 
-*Dokumen ini adalah bagian dari fase riset pengguna. Persona di sini adalah hipotesis kerja, bukan profil yang sudah divalidasi. Langkah berikutnya: gunakan pertanyaan wawancara di `plans/03-assumptions.md` §4.2 untuk mengonfirmasi atau merevisi persona ini.*
+## 7. Lima Hal yang Belum Kami Ketahui
+
+Ini bukan daftar lengkap — ini adalah celah pengetahuan yang paling langsung memengaruhi keputusan desain MVP.
+
+| # | Yang Belum Diketahui | Mengapa Penting untuk Desain | Cara Mengetahuinya |
+|---|---------------------|-----------------------------|--------------------|
+| **?1** | **Berapa proporsi S3 yang merupakan Kategori A (sengaja *free-riding*) vs. B (kebingungan) vs. C (terhalang jadwal)?** Saat ini ketiga kategori diperlakukan sebagai kemungkinan yang setara. | Jika mayoritas adalah Kategori A, desain harus menangani *incentive structure*; jika Kategori B dominan, desain harus menangani kejelasan tugas; jika Kategori C dominan, desain harus menangani *load balancing*. Ketiganya membutuhkan respons desain yang sangat berbeda. | Wawancara mendalam dengan 5–8 mahasiswa yang pernah berkontribusi rendah (pertanyaan W1–W2 di `plans/03-assumptions.md` §4.2). |
+| **?2** | **Apakah mahasiswa bersedia menggunakan tool yang membuat kontribusi individual terlihat oleh seluruh anggota tim?** Asumsi A-A4 di `plans/03-assumptions.md` mengidentifikasi ini sebagai risiko, tapi belum ada data. | Ini menentukan apakah desain bisa menggunakan model transparansi penuh, transparansi bertahap, atau privasi individual sepenuhnya. Memilih model yang salah akan menciptakan resistensi dari S3 sejak hari pertama. | Pertanyaan langsung di wawancara (W4 di `plans/03-assumptions.md`) atau eksperimen prototipe cepat dengan 3–5 mahasiswa. |
+| **?3** | **Seberapa besar peran dosen dalam mendorong atau menghambat adopsi tool tambahan?** Saat ini dosen diasumsikan bersikap netral hingga mendukung (A-E1, A-E2). | Jika dosen secara aktif melarang tool non-LMS, model distribusi produk harus sepenuhnya bergantung pada jaringan mahasiswa — tanpa dukungan institusional. Ini mengubah strategi akuisisi pengguna secara fundamental. | Wawancara singkat dengan 2–3 dosen yang rutin memberikan tugas kelompok. |
+| **?4** | **Apakah setiap kelompok selalu memiliki satu orang yang berfungsi sebagai "koordinator"?** Seluruh alur di Persona 1 (Rahma) mengasumsikan ada peran ini. | Jika banyak kelompok berjalan secara datar tanpa hierarki formal, fitur yang dirancang untuk "ketua" menjadi tidak relevan dan produk harus dirancang ulang untuk model koordinasi terdistribusi. | Satu pertanyaan survei: "Dalam kelompokmu, biasanya ada satu orang yang mengatur koordinasi, atau semua anggota setara?" |
+| **?5** | **Platform atau kanal mana yang sudah dipakai mahasiswa di luar WhatsApp untuk keperluan akademis?** Saat ini diasumsikan hampir tidak ada (gap tool nyata), tapi ini belum diverifikasi. | Jika ternyata sebagian mahasiswa sudah memakai Notion, Discord server, atau Google Workspace secara terstruktur, produk harus bisa *terintegrasi* dengan ekosistem yang ada — bukan menambah satu platform baru yang bersaing. | Pertanyaan P4 di poll cepat `plans/03-assumptions.md` §4.1, atau pertanyaan blok 4 di survei lengkap. |
+
+---
+
+*Dokumen ini adalah bagian dari fase riset pengguna. Persona di sini adalah hipotesis kerja, bukan profil yang sudah divalidasi. Langkah berikutnya: gunakan pertanyaan wawancara di `plans/03-assumptions.md` §4.2 untuk mengonfirmasi atau merevisi persona ini sebelum masuk ke ideasi.*
