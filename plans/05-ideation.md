@@ -236,34 +236,369 @@ Ide awal tim menyerang masalah yang nyata dan memiliki irisan jelas dengan Tema 
 
 ---
 
-## 5. Rekomendasi Fokus
+## 5. Rekomendasi Fokus — Konsep Produk SatuTim
 
-### Rekomendasi Utama: **IDE 1 + IDE 10 digabung** → *"SatuTim: AI Fasilitator Kesepakatan & Mediasi Kelompok"*
+> **Catatan revisi (dari diskusi tim):** Rekomendasi lama (Ide 1 + 10) ditolak karena: (1) masih bergantung pada WA sebagai kanal eksekusi — mereproduksi fragmentasi yang ingin diserang; (2) hanya menyentuh dua titik, melewatkan fase monitor dan log yang merupakan inti nilai produk. Konsep baru ini menggantikannya sepenuhnya, dengan tambahan mekanisme *skill gap analysis* untuk menangani ketidakseimbangan komposisi tim.
 
-**Konsep gabungan:** Sebuah web app / interactive bot yang memandu dua momen kritis dalam siklus tugas kelompok:
-1. **Awal:** AI memandu sesi kickoff 5 menit untuk menyepakati peran, deadline internal, dan aturan komunikasi — menghasilkan "Pact" yang tersimpan dan bisa dirujuk kapan saja.
-2. **Tengah jalan:** Jika ada anggota yang tidak aktif, AI bertindak sebagai mediator netral — berbicara atas nama kelompok tanpa mengungkap siapa yang "mengadu", menggunakan bahasa suportif bukan menghukum.
+---
 
-**Mengapa ini lebih baik dari ide awal tim:**
+### 5.1 Alur Produk: Cocokkan → Bagi Tugas → Monitor → Log
 
-| Dimensi | Ide Awal (Task Tracker) | Rekomendasi (Fasilitator Momen Kritis) |
-|---------|------------------------|---------------------------------------|
-| Hambatan adopsi S3 | Tinggi — harus login, isi data, rutin buka app | Lebih rendah — cukup merespons 1 pesan AI saat kickoff |
-| Diferensiasi dari Trello/Notion | Lemah | Kuat — tidak ada tool yang memfokuskan diri pada *momen kickoff + mediasi* |
-| Demo 3 menit | Sulit menunjukkan nilai nyata | Bisa di-demo sebagai percakapan AI yang hidup |
-| IBM Bob Utilization | Sedang (generasi form + reminder) | Tinggi (multi-mode: Plan mode untuk kickoff, Agent mode untuk mediasi, Ask mode untuk panduan tim) |
-| Kelayakan 3 hari | Bisa, tapi fitur bisa membengkak | Terfokus — 2 alur utama yang bisa dibangun dan ditest dalam 3 hari |
+Semua fase terjadi di dalam satu aplikasi. Tidak ada ketergantungan pada WA atau platform eksternal untuk alur inti. [ASUMSI: MVP-nya layak dibangun dalam 3 hari jika scope per fase dijaga ketat]
 
-**Apa yang dikorbankan:**
-- Tidak ada *full task tracking* — progres tugas tidak dilacak secara granular.
-- Tidak ada visibilitas kontribusi real-time — tidak ada "leaderboard" atau dashboard siapa mengerjakan berapa.
-- Tidak menyentuh masalah pembentukan tim (*matching*) — tim diarahkan untuk menerima komposisi yang ada dan memaksimalkan dinamika internal.
+```
+┌──────────────────────────────────────────────────────────────┐
+│                         SATUTIM                              │
+│                                                              │
+│  [1. COCOKKAN]  [2. BAGI TUGAS]  [3. MONITOR]  [4. LOG]     │
+│                                                              │
+│  Upload CV  →  AI gap-check  →  Update status  →  Laporan   │
+│  AI ekstrak    + bagi tugas      di dalam app     kontribusi │
+│  profil        sesuai role &     board real-time  per orang  │
+│                jenis tugas                                   │
+└──────────────────────────────────────────────────────────────┘
+```
 
-> **Alasan pengorbanan ini diterima:** Melacak kontribusi real-time (Ide 2) terlalu berat secara teknis untuk 3 hari. Matching pre-kelompok (Ide 11) bergantung pada dosen. Fokus pada dua momen kritis memungkinkan produk yang *selesai dan demo-able* lebih kuat daripada produk yang *hampir selesai tapi ambisius*.
+---
 
-### Alternatif jika Rekomendasi Utama Terlalu Kompleks: **IDE 8 murni** → *Weekly Retrospective Bot*
+### 5.2 Masalah Desain Terbuka #1 — Jenis Tugas Harus Spesifik
 
-Lebih sederhana secara teknis: hanya chatbot yang mengirimkan 3 pertanyaan refleksi per minggu dan merangkum jawabannya. Skor IBM Bob tetap tinggi (generasi pertanyaan adaptif, ringkasan AI). Lebih mudah dibangun dalam 3 hari dengan risiko lebih rendah. Kelemahannya: orisinalitas lebih rendah dan dampak pada S3 lebih tidak langsung.
+> **Celah ini belum pernah dibahas di dokumen plans sebelumnya.** Tanpa mengetahui jenis tugas, AI tidak bisa menentukan role yang relevan, sub-tugas yang masuk akal, atau porsi yang adil. Sistem yang terlalu generik tidak lebih baik dari Trello. [ASUMSI]
+
+| Jenis Tugas | Role Tipikal | Pola Pembagian Sub-tugas | Indikator "Selesai" per Sub-tugas |
+|-------------|-------------|--------------------------|-----------------------------------|
+| **Makalah / Laporan** | Penulis per bab, editor, pencari referensi, layouter | Per bab atau bagian dokumen | Bab selesai ditulis + direview satu anggota lain + masuk dokumen bersama |
+| **Presentasi** | Riset konten per topik, desainer slide, pembawa materi, moderator | Per segmen konten + per peran tampil | Slide segmen selesai + latihan presentasi ≥ 1 kali |
+| **Proyek / Prototipe** (IT, Teknik, Desain) | Project manager, frontend, backend, UI/UX, tester, dokumentasi | Per komponen fungsional | Komponen berfungsi + sudah ditest + terdokumentasi |
+| **Studi Kasus / Analisis** | Pengumpul data, analis, penulis temuan, reviewer, penyaji | Per tahap analisis | Data terkumpul + analisis selesai + sudah dikros-cek |
+| **Proyek Lapangan / Observasi** | Koordinator lapangan, pengumpul data, analis, penulis laporan | Per lokasi atau metode pengumpulan | Data dari semua titik + divalidasi + masuk laporan |
+
+**Konsekuensi desain:** Langkah pertama setelah onboarding CV adalah **koordinator memilih jenis tugas**. AI menyesuaikan template role, cara memecah sub-tugas, dan kriteria selesai berdasarkan pilihan ini.
+
+---
+
+### 5.3 Masalah Desain Terbuka #2 — Skill Imbalance dalam Tim (*Gap Analysis*)
+
+> **Ini skenario nyata yang belum pernah dibahas di mana pun.** Contoh kasus: kelas 20 mahasiswa, 10 tim masing-masing 2 orang, jenis tugas = Proyek IT. Komposisi skill: 15 frontend developer, 5 backend developer. Kebutuhan ideal per tim: 1 frontend + 1 backend. Tapi stok tidak cukup — hanya 5 backend untuk 10 tim. Tanpa mekanisme untuk ini, sistem akan merekomendasikan role yang tidak bisa dijalankan oleh tim tertentu, dan pembagian tugas menjadi tidak adil. [ASUMSI bahwa ini terjadi secara nyata di kelas]
+
+#### Tiga Skenario yang Harus Ditangani Sistem
+
+**Skenario A — Tim sudah dibentuk dosen, komposisi skill homogen (misal: 2 frontend, 0 backend)**
+
+Sistem tidak bisa mengubah komposisi. Yang harus dilakukan:
+
+> AI menjalankan **Gap Analysis** setelah CV diekstrak: "Untuk proyek ini, role yang dibutuhkan adalah: Frontend (ada ✓), Backend (tidak ada ✗), Tester (tidak ada ✗)."
+>
+> AI menawarkan **3 opsi adaptasi** kepada tim:
+> 1. **Redistribusi cakupan**: "Karena tidak ada backend, salah satu dari kalian perlu handle bagian API/server. AI akan memecah task backend menjadi unit-unit kecil yang bisa dikerjakan bertahap oleh yang belum berpengalaman."
+> 2. **Penyesuaian scope proyek**: "Fokuskan proyek ke bagian yang bisa dikerjakan tim ini — frontend + mockup/prototype tanpa backend nyata."
+> 3. **Peringatan ke koordinator**: "Tim ini memiliki gap skill. Pertimbangkan diskusi dengan dosen untuk penyesuaian scope tugas."
+
+**Skenario B — Tim belum dibentuk, sistem bisa bantu rekomendasi matching**
+
+> AI merekomendasikan komposisi tim yang mendistribusikan *scarce skill* (backend) se-merata mungkin ke seluruh tim sebelum dosen mengacak. Dari 10 tim: 5 tim mendapat komposisi ideal (1 frontend + 1 backend), 5 tim sisanya mendapat 2 frontend dengan scope yang sudah diadaptasi. Rekomendasi ini diserahkan sebagai usulan ke koordinator/dosen — bukan keputusan final sistem.
+
+**Skenario C — Tim 2 frontend, tapi salah satu bisa belajar backend untuk proyek ini**
+
+> AI mendeteksi gap dan menawarkan jalur belajar: "Tim kamu tidak punya backend developer. Ini artinya satu dari kalian perlu menangani bagian ini. AI bisa membantu urai task backend menjadi langkah kecil yang lebih mudah dipelajari sambil dikerjakan."
+
+#### Prinsip yang Mengatur Ketiga Skenario
+
+| Prinsip | Penjelasan |
+|---------|-----------|
+| **Sistem tidak boleh berasumsi bahwa setiap tim punya semua role yang dibutuhkan** | Setelah CV diekstrak, AI selalu menjalankan gap check sebelum merekomendasikan pembagian tugas. [ASUMSI] |
+| **Gap bukan kegagalan — gap adalah informasi** | Sistem tidak menolak tim yang skill-nya imbalanced; ia mengadaptasi pembagian tugas agar tetap adil dalam konteks komposisi yang ada. [ASUMSI] |
+| **Porsi adil ≠ role sama** | Dua orang dengan skill berbeda bisa memiliki porsi kerja yang setara meski role-nya berbeda — sistem menilai kesetaraan dari estimasi waktu dan kompleksitas sub-tugas, bukan dari jumlah role yang sama. [ASUMSI] |
+| **Transparansi gap ke seluruh tim** | Semua anggota melihat gap analysis yang sama — tidak ada yang tersembunyi — sehingga keputusan adaptasi adalah keputusan bersama, bukan keputusan koordinator sendiri. [ASUMSI] |
+
+---
+
+### 5.4 Detail Tiap Fase
+
+#### FASE 1 — Cocokkan
+
+**Masalah yang diserang:** Komposisi tim tidak diketahui secara eksplisit; tidak ada basis data untuk pembagian role yang cerdas.
+
+**Mekanisme:**
+1. Koordinator buat room → bagikan kode ke anggota.
+2. Setiap anggota **upload CV** (PDF). AI mengekstrak: keahlian teknis, pengalaman organisasi, gaya kerja yang bisa diinferens.
+3. Profil hasil ekstraksi ditampilkan ringkas — anggota koreksi dengan satu klik, bukan isi dari nol.
+4. Koordinator pilih **jenis tugas** (Makalah / Presentasi / Proyek IT / Studi Kasus / dll.).
+5. AI jalankan **Gap Analysis**: role apa yang dibutuhkan vs. yang tersedia → tampilkan ke seluruh tim.
+6. AI tawarkan opsi adaptasi jika ada gap (lihat §5.3 di atas).
+
+**Fallback untuk mahasiswa tanpa CV:** Opsi "isi 3 pertanyaan singkat" — keahlian utama, pengalaman relevan, ketersediaan waktu. [ASUMSI: ini mengurangi hambatan onboarding]
+
+---
+
+#### FASE 2 — Bagi Tugas
+
+**Masalah yang diserang:** Pembagian tugas tidak jelas, tidak ada *Definition of Done*, porsi tidak setara, tidak ada deadline internal.
+
+**Mekanisme:**
+1. Koordinator paste deskripsi tugas dari dosen.
+2. AI membaca jenis tugas + gap analysis → memecah menjadi sub-tugas spesifik dengan kriteria selesai yang jelas.
+3. Sub-tugas di-assign ke anggota berdasarkan role yang sudah disepakati di Fase 1.
+4. AI menyarankan estimasi waktu dan deadline internal per sub-tugas berdasarkan deadline final.
+5. **Porsi diverifikasi AI:** sistem menghitung apakah estimasi beban tiap anggota setara. Jika tidak — AI memberi peringatan dan menyarankan redistribusi sebelum tim mengonfirmasi.
+6. Tim konfirmasi atau geser assignment → **board pembagian tugas** terkunci dan terlihat semua anggota.
+
+---
+
+#### FASE 3 — Monitor
+
+**Masalah yang diserang:** Tidak ada *shared visibility*; koordinator mengejar anggota satu per satu via WA; tidak ada deteksi dini ketimpangan.
+
+**Mekanisme (semua di dalam app):**
+- Setiap anggota update status sub-tugasnya dengan satu tap: **Belum Mulai / Sedang Dikerjakan / Selesai**.
+- **Board progres tim** terlihat oleh semua anggota secara real-time — tidak perlu WA.
+- AI mendeteksi sub-tugas mendekati deadline tapi belum mulai → kirim notifikasi **privat** ke anggota yang bertanggung jawab (bukan broadcast publik).
+- Jika tidak ada update dalam X hari → AI notifikasi privat ke koordinator: "Sub-tugas [X] belum ada update sejak [tanggal]."
+- Koordinator memutuskan langkah selanjutnya — sistem tidak mengambil tindakan otomatis yang bisa mempermalukan anggota.
+
+---
+
+#### FASE 4 — Log & Output
+
+**Masalah yang diserang:** Tidak ada bukti kontribusi individual; penilaian kolektif tidak mencerminkan kerja nyata.
+
+**Mekanisme:**
+- Semua update status, komentar, dan upload file tercatat otomatis dengan timestamp.
+- Setelah tugas dikumpulkan, app menghasilkan **Laporan Kontribusi** per anggota: sub-tugas apa, selesai kapan, berapa persen dari total beban tim.
+- AI menghitung dan menampilkan indikator kesetaraan beban — dengan peringatan visual jika ada ketimpangan signifikan.
+- Laporan bisa di-export (PDF/link) dan opsional dibagikan ke dosen.
+
+---
+
+### 5.5 Perbandingan Akhir
+
+| Dimensi | Trello / Notion | Rekomendasi Lama (Ide 1+10) | **SatuTim (Konsep Baru)** |
+|---------|----------------|----------------------------|---------------------------|
+| Onboarding | Isi manual | Bot kickoff | Upload CV → AI ekstrak |
+| Konteks jenis tugas | Tidak ada | Tidak ada | Pilih jenis tugas → AI sesuaikan role & sub-tugas |
+| Skill gap analysis | Tidak ada | Tidak ada | **Ada — deteksi gap + 3 opsi adaptasi** |
+| Pembagian tugas | Manual | Saran AI generik | AI berbasis profil CV + jenis tugas + gap analysis |
+| Monitor | Manual (pindah kartu) | Di luar app (WA) | Di dalam app — satu tap, board real-time |
+| Notifikasi | Manual / tidak ada | Mediator AI via WA | Privat in-app, tidak mempermalukan publik |
+| Log kontribusi | Tidak ada | Tidak ada | Otomatis — laporan porsi per anggota + export |
+| Fragmentasi | Tinggi | Tinggi (masih pakai WA) | **Rendah — semua di satu app** |
+| Diferensiasi | — | Sedang | **Kuat** — gap analysis + role-aware task splitting belum ada di tool mahasiswa |
+
+---
+
+### 5.6 Scope MVP Minimum untuk Build Week 3 Hari
+
+| Prioritas | Fase | Status Target |
+|-----------|------|--------------|
+| **Harus selesai dan berjalan** | Fase 1: CV upload + ekstraksi profil + pilih jenis tugas + gap analysis | Live di demo |
+| **Harus selesai dan berjalan** | Fase 2: AI bagi sub-tugas + board pembagian + verifikasi porsi | Live di demo |
+| **Bisa mockup/statis** | Fase 3: Board progres + notifikasi privat | UI mockup di demo |
+| **Bisa mockup/statis** | Fase 4: Log kontribusi + laporan | Preview statis di demo |
+
+> **Demo 3 menit yang ideal:** Tunjukkan Fase 1 dan 2 secara live (upload CV → AI ekstrak → gap analysis muncul → pilih jenis tugas → AI bagi sub-tugas → board muncul dengan porsi yang terverifikasi). Kemudian tunjukkan mockup Fase 3 dan 4 sebagai "begini tampilannya setelah tim bekerja beberapa hari."
+
+---
+
+### 5.7 Pemilihan Fokus MVP: 2 Jenis Tugas untuk Build Week
+
+#### Alasan Tidak Mengambil Semua 5 Jenis Tugas
+
+Setiap jenis tugas membutuhkan **template role yang berbeda, pola sub-tugas yang berbeda, dan indikator selesai yang berbeda**. Mengimplementasikan kelimanya dalam 3 hari berarti 5 set logika AI yang setengah matang — tidak ada yang bekerja dengan baik. Lebih baik 2 jenis tugas yang dalam daripada 5 yang dangkal. [ASUMSI]
+
+#### Kriteria Seleksi
+
+| Kriteria | Bobot Pertimbangan |
+|----------|-------------------|
+| **Frekuensi** — seberapa sering jenis ini diberikan, lintas jurusan | Tinggi |
+| **Manfaat dari sistem** — seberapa besar role-nya berbeda antar anggota (makin berbeda = makin butuh gap analysis + matching) | Tinggi |
+| **Kompleksitas template** — seberapa predictable pola role dan sub-tugasnya untuk diimplementasikan dalam 3 hari | Sedang |
+
+#### Evaluasi 5 Jenis Tugas
+
+| Jenis Tugas | Frekuensi Lintas Jurusan | Manfaat dari Sistem | Kompleksitas Template | **Skor** |
+|-------------|:------------------------:|:-------------------:|:---------------------:|:--------:|
+| Makalah / Laporan | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | Rendah ✓ | **Tinggi** |
+| Presentasi | ⭐⭐⭐⭐ | ⭐⭐ | Rendah ✓ | Sedang |
+| Proyek IT / Teknik | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Sedang–Tinggi | **Tinggi** |
+| Studi Kasus / Analisis | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Sedang | Sedang–Tinggi |
+| Proyek Lapangan | ⭐⭐ | ⭐⭐⭐ | Tinggi ✗ | Rendah |
+
+**Pilihan MVP: Makalah/Laporan + Proyek IT/Teknik**
+
+- **Makalah/Laporan** → *beachhead* universal: hampir semua mahasiswa semua jurusan semua semester pernah mengerjakan ini. Template role predictable, mudah diimplementasikan, dan memvalidasi sistem di audiens terluas.
+- **Proyek IT/Teknik** → *showcase* gap analysis: role paling berbeda (frontend ≠ backend ≠ tester), skenario imbalance paling dramatis dan paling bisa didemo secara langsung (persis kasus 15 frontend + 5 backend). Ini membuktikan nilai diferensiasi sistem yang paling kuat.
+
+Keduanya saling melengkapi: Makalah untuk universalitas, Proyek IT untuk kecanggihan.
+
+---
+
+### 5.8 Alur Lengkap per Jenis Tugas yang Dipilih
+
+---
+
+#### TIPE A — Makalah / Laporan Tertulis
+
+**Konteks umum:** Tugas kelompok berbentuk dokumen tertulis (makalah, laporan observasi, laporan praktikum, paper). Diberikan di hampir semua jurusan. Deadline biasanya 1–3 minggu.
+
+**Role template yang di-generate AI:**
+
+| Role | Tanggung Jawab | Indikator Selesai |
+|------|---------------|-------------------|
+| **Penulis Bab [n]** | Menulis konten bab yang ditugaskan sesuai outline | Draft bab lengkap + masuk dokumen bersama + ditandai "siap review" |
+| **Pencari Referensi** | Mengumpulkan dan memformat sumber yang relevan | Minimal [n] sumber dikumpulkan + diformat sesuai gaya sitasi yang disepakati |
+| **Editor / Reviewer** | Membaca seluruh draft, memberi komentar, memastikan konsistensi bahasa dan alur | Semua bab sudah dikomentari + komentar utama sudah dibalas penulis |
+| **Layouter / Formatter** | Mengatur format dokumen akhir (margin, heading, daftar isi, halaman) | Dokumen final sesuai ketentuan dosen + siap upload |
+
+**Gap analysis untuk Makalah:**
+
+Makalah lebih homogen dari Proyek IT — hampir semua mahasiswa bisa menulis. Gap yang muncul biasanya bukan skill teknis tapi **kapasitas dan kualitas**:
+
+> *Jika semua anggota profil CV-nya generalis (tidak ada yang menonjol sebagai editor atau researcher)*, AI tidak melakukan gap alert — melainkan membagi bab secara merata berdasarkan estimasi waktu, lalu menugaskan role editor ke anggota yang beban penulisannya paling ringan.
+
+> *Jika jumlah anggota tidak habis dibagi jumlah bab*, AI menggabungkan role: "Anggota ini menulis Bab 2 sekaligus menjadi editor Bab 1."
+
+**Alur konkret di SatuTim — Makalah 4 orang, 4 bab, deadline 2 minggu:**
+
+```
+[Fase 1 — Cocokkan]
+  4 anggota upload CV
+  AI ekstrak: tidak ada skill teknis khusus yang menonjol
+  Koordinator pilih jenis tugas: "Makalah / Laporan"
+  AI tampilkan template role: Penulis Bab 1, Penulis Bab 2,
+    Penulis Bab 3+Editor, Pencari Referensi+Layouter
+  Gap check: tidak ada gap kritis (semua bisa menulis)
+  Tim konfirmasi assignment
+
+[Fase 2 — Bagi Tugas]
+  Koordinator paste outline + deskripsi tugas dosen
+  AI pecah: Bab 1 (Pendahuluan) → 3 sub-tugas:
+    1.1 Latar belakang (est. 3 jam) → Anggota A
+    1.2 Rumusan masalah & tujuan (est. 1 jam) → Anggota A
+    1.3 Review sumber minimal 5 referensi (est. 2 jam) → Anggota D
+  [sama untuk Bab 2, 3, 4]
+  AI verifikasi porsi: Anggota A (6 jam), B (5 jam),
+    C (7 jam), D (6 jam) → "Beban A dan C sedikit berbeda,
+    apakah ingin digeser?"
+  Tim konfirmasi → board terkunci
+
+[Fase 3 — Monitor]
+  Setiap anggota update: Belum Mulai → Dikerjakan → Selesai
+  H-3 deadline: Bab 3 belum ada update → notifikasi privat ke C
+  Board terlihat semua: A ✓ B ✓ C ⏳ D ✓
+
+[Fase 4 — Log]
+  Laporan: A (32% beban), B (28%), C (27%), D (13%)
+  ⚠ AI flag: porsi D lebih rendah dari estimasi awal
+  Tim dan dosen bisa lihat log ini
+```
+
+---
+
+#### TIPE B — Proyek IT / Teknik / Prototipe
+
+**Konteks umum:** Tugas kelompok berbentuk aplikasi, sistem, atau prototipe fungsional. Umumnya di jurusan Informatika, Sistem Informasi, Teknik Elektro, Desain Produk. Deadline biasanya 2–6 minggu. **Ini adalah jenis tugas di mana gap analysis paling kritis dan paling memberi nilai.**
+
+**Role template yang di-generate AI:**
+
+| Role | Tanggung Jawab | Indikator Selesai |
+|------|---------------|-------------------|
+| **Project Manager** | Koordinasi jadwal, komunikasi antar role, pastikan semua sub-tugas on track | Semua milestone terpenuhi + dokumentasi rapat singkat tersimpan |
+| **UI/UX Designer** | Desain tampilan dan alur penggunaan | Wireframe/mockup lengkap semua halaman + sudah di-review developer |
+| **Frontend Developer** | Implementasi tampilan | Semua halaman berfungsi sesuai mockup + responsif |
+| **Backend Developer** | Implementasi logika server, API, database | API endpoint berjalan + terdokumentasi + sudah ditest frontend |
+| **Tester / QA** | Uji fungsionalitas end-to-end | Test case terdokumentasi + semua bug kritis sudah dilaporkan |
+| **Technical Writer** | Menulis dokumentasi teknis dan laporan | Dokumentasi lengkap + sesuai format yang diminta dosen |
+
+**Gap analysis untuk Proyek IT — kasus imbalance:**
+
+```
+Contoh: Tim 3 orang, semua frontend developer (dari CV)
+Jenis tugas dipilih: Proyek IT
+
+AI Gap Analysis:
+  Role yang dibutuhkan:  Frontend ✓ | Backend ✗ | UI/UX ✗ | Tester ✗
+  
+  AI menawarkan 3 opsi:
+
+  [Opsi 1 — Redistribusi cakupan]
+  "Tidak ada backend developer di tim ini. Salah satu dari
+  kalian perlu menangani backend. AI akan memecah task
+  backend menjadi langkah kecil:
+    - Setup database sederhana (tutorial tersedia)
+    - Buat 2 API endpoint dasar
+    - Koneksikan ke frontend
+  Estimasi: bisa dipelajari sambil dikerjakan dalam 3-4 hari."
+  
+  [Opsi 2 — Penyesuaian scope]
+  "Fokuskan proyek ke frontend + mockup. Gunakan data statis
+  atau JSON lokal sebagai pengganti backend nyata. Scope ini
+  realistis untuk tim full-frontend."
+  
+  [Opsi 3 — Peringatan ke koordinator]
+  "Tim ini memiliki gap skill signifikan. Disarankan diskusi
+  dengan dosen tentang penyesuaian scope atau komposisi tim."
+
+Tim pilih Opsi 2 → AI regenerate template role:
+  Anggota A: Frontend + integrasi data statis
+  Anggota B: UI/UX + desain semua halaman
+  Anggota C: Technical Writer + Tester
+  Porsi: A (40%), B (35%), C (25%) → AI flag: C lebih ringan,
+    tawarkan tambahan sub-tugas ke C
+```
+
+**Alur konkret di SatuTim — Proyek IT 4 orang, 1 frontend + 1 backend + 1 UI/UX + 1 PM:**
+
+```
+[Fase 1 — Cocokkan]
+  4 anggota upload CV
+  AI ekstrak: A=frontend, B=backend, C=UI/UX, D=generalis
+  Koordinator pilih jenis tugas: "Proyek IT / Prototipe"
+  AI tampilkan gap check: Frontend ✓ Backend ✓ UI/UX ✓
+    PM → AI assign ke D (profil paling generalis)
+    Tester → dibagi antara A dan B (cross-test)
+  "Komposisi tim ini ideal untuk proyek IT ✓"
+  Tim konfirmasi assignment
+
+[Fase 2 — Bagi Tugas]
+  Koordinator paste deskripsi proyek dosen
+  AI pecah berdasarkan komponen:
+    Frontend (A): Landing page, Form input, Dashboard tampilan
+    Backend (B): API auth, API data, Koneksi database
+    UI/UX (C): Wireframe semua halaman, Design system, Review UI
+    PM (D): Jadwal sprint, Dokumentasi, Laporan akhir
+  AI verifikasi porsi berdasarkan estimasi jam:
+    A (12 jam), B (14 jam), C (8 jam), D (6 jam)
+    ⚠ "B dan C beban berbeda cukup signifikan.
+    Pertimbangkan memindahkan 1 sub-tugas dari B ke C."
+  Tim sesuaikan → konfirmasi
+
+[Fase 3 — Monitor]
+  Setiap anggota update per sub-tugas
+  API auth (B) belum ada update H-5 → notifikasi privat ke B
+  Board: A 2/3 ✓ | B 0/3 ⏳ | C 3/3 ✓ | D 1/2 ✓
+  Koordinator lihat alert: backend tertinggal
+  Koordinator hubungi B (keputusan manusia, bukan sistem)
+
+[Fase 4 — Log]
+  Laporan akhir: A (38%), B (31%), C (24%), D (7%)
+  ⚠ D porsi jauh di bawah estimasi → terdokumentasi
+  Export PDF untuk dosen
+```
+
+---
+
+#### Perbandingan Cepat Dua Tipe
+
+| Aspek | Makalah / Laporan | Proyek IT / Teknik |
+|-------|------------------|-------------------|
+| Target jurusan | Semua jurusan | Teknis (Informatika, SI, Teknik) |
+| Role-nya homogen? | Relatif ya (semua bisa nulis) | Tidak — skill sangat berbeda |
+| Gap analysis kritis? | Jarang | Sangat sering |
+| Kompleksitas template | Rendah → mudah dibuat | Sedang → butuh lebih banyak variasi |
+| Demo value | Universal, relatable | Dramatic, showcases AI capability |
+| Prioritas implementasi Build Week | **Hari 1–2** | **Hari 2–3** |
+
+> **Strategi implementasi 3 hari:** Selesaikan Makalah sepenuhnya di hari pertama sebagai fondasi (logika ekstraksi CV, gap check, board). Hari kedua tambahkan template Proyek IT dengan gap analysis yang lebih kaya. Hari ketiga polish UI, Fase 3 mockup, dan siapkan demo script.
 
 ---
 
@@ -271,14 +606,17 @@ Lebih sederhana secara teknis: hanya chatbot yang mengirimkan 3 pertanyaan refle
 
 | Ide | Alasan Tidak Dipilih |
 |-----|---------------------|
-| **Ide 2 — Contribution Mirror** | Integrasi Google Docs API tidak trivial dalam 3 hari; risiko "gaming" sistem tinggi; bisa menimbulkan rasa malu pada S3 alih-alih mendorong keterlibatan. |
-| **Ide 3 — Bot WA Team Pulse** | WhatsApp API memiliki batasan teknis signifikan; format bot di WA sudah familiar tapi tidak cukup diferensiasi untuk memenangkan kompetisi inovasi. |
-| **Ide 4 — Task Decomposer** | Berguna tapi terlalu mirip fitur-fitur yang sudah ada di ChatGPT atau Notion AI; orisinalitas rendah; tidak menyentuh hambatan sosial sama sekali. |
-| **Ide 5 — Peer Nudge Anonim** | Risiko etis terlalu tinggi — anonimitas bisa disalahgunakan; perlu desain keamanan yang melampaui scope 3 hari. |
-| **Ide 6 — Role Roulette** | Bergantung pada kejujuran pengisian profil; nilai diferensiasi sedang; tidak menyelesaikan masalah anggota yang sudah ada di dalam kelompok yang jelek. |
-| **Ide 7 — Papan Fisik** | Tidak bisa di-demo secara digital; tidak relevan untuk kompetisi yang menilai IBM Bob Utilization. |
-| **Ide 9 — Contribution Auction** | Terlalu spekulatif secara perilaku; bisa merusak kohesi tim; butuh pengujian A/B yang tidak mungkin dilakukan dalam 3 hari. |
-| **Ide 11 — Skill-Match Buddy** | Bergantung pada dosen sebagai gatekeeper — hambatan institusional yang tidak bisa dikendalikan oleh produk mahasiswa. |
+| **Ide 1 — Kickoff Pact** | Elemen kontrak tim diserap ke dalam Fase 1 (working agreement jadi bagian setup room); tidak cukup kuat sebagai produk mandiri. |
+| **Ide 2 — Contribution Mirror** | Integrasi Google Docs API terlalu berat untuk 3 hari; fungsinya sudah tercakup di Fase 4 (log kontribusi internal). |
+| **Ide 3 — Bot WA Team Pulse** | Bergantung pada WA — mereproduksi fragmentasi yang ingin diselesaikan; digantikan Fase 3 in-app. |
+| **Ide 4 — Task Decomposer** | Terlalu mirip ChatGPT biasa jika berdiri sendiri; fungsionalitasnya ada di Fase 2. |
+| **Ide 5 — Peer Nudge Anonim** | Risiko etis; digantikan notifikasi privat-suportif di Fase 3. |
+| **Ide 6 — Role Roulette** | Bergantung pada pengisian profil manual; digantikan ekstraksi CV di Fase 1. |
+| **Ide 7 — Papan Fisik** | Tidak digital; tidak relevan untuk kompetisi IBM Bob. |
+| **Ide 8 — Weekly Retrospective** | Bisa jadi fitur tambahan post-MVP; bukan inti untuk 3 hari. |
+| **Ide 9 — Contribution Auction** | Terlalu spekulatif; berisiko merusak kohesi tim. |
+| **Ide 10 — AI Mediator** | Diserap ke dalam mekanisme notifikasi privat Fase 3; tidak perlu berdiri sendiri. |
+| **Ide 11 — Skill-Match Buddy** | Bergantung pada dosen; fungsionalitasnya sudah ada di Fase 1 (matching berbasis CV dalam kelompok yang sudah terbentuk). |
 
 ---
 
