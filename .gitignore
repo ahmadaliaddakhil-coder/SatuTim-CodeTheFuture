@@ -1,0 +1,6 @@
+
+# Google Slides OAuth secrets
+google-slides/credentials.json
+google-slides/token.json
+google-slides/presentation-url.txt
+.bob/mcp.json
